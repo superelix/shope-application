@@ -20,7 +20,7 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
-	@PostMapping("/neworder/productidentity/{productId}/cutomeridentity/{customerId}")
+	@PostMapping("/neworder/productidentity/{productId}/customeridentity/{customerId}")
 	public Order addOrder(@PathVariable("productId") int productId,@PathVariable("customerId") int customerId) {
 		
 		return orderService.placeOrder
@@ -28,7 +28,7 @@ public class OrderController {
 				 customerId);
 	}
 	
-	@RequestMapping(value="/updateOrder/{orderId}",
+	@RequestMapping(value="/updateorder/{orderId}",
 			method=RequestMethod.PUT)
 	public Order updateOrderStatus(@RequestBody String status,@PathVariable int orderId) {
 		return orderService.updateOrder(orderId,status);
